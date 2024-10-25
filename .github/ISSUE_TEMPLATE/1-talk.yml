@@ -1,0 +1,70 @@
+name: "茶话会报名"
+description: '参加茶话会需要提供部分必要信息'
+title: "[茶话会]: "
+labels: ["talk"]
+body:
+  - type: input
+    id: author
+    attributes:
+      label: '作者'
+      description: '姓名/昵称/github_id'
+      placeholder: '怎么称呼您?'
+    validations:
+      required: true
+  - type: checkboxes
+    id: content_type
+    attributes:
+      label: '内容类型'
+      description: '如果是技术类分享，一定要注意难度/吸引力等要素，可以参考首页列出的 PPT 写作/演讲技巧'
+      options:
+        - label: '技术类'
+        - label: '其他'
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: '标题'
+      description: '分享内容题目'
+      placeholder: '例如: 小白也能听懂的蟒蛇吃法'
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: '摘要/大纲'
+      description: '可选'
+      placeholder: '提供内容摘要（可选）'
+    validations:
+      required: false
+  - type: input
+    id: duration
+    attributes:
+      label: '预计时长'
+      description: '预计完成内容所需时长'
+      placeholder: '例如: 20 分钟'
+    validations:
+      required: true
+  - type: input
+    id: participation_time
+    attributes:
+      label: '参加时间'
+      description: '请填写参加时间'
+      placeholder: '例如: 2024-10-25'
+    validations:
+      required: true
+  - type: textarea
+    id: other
+    attributes:
+      label: '补充说明'
+      description: '可选'
+      placeholder: '想写啥就写啥'
+    validations:
+      required: false
+  - type: markdown
+    id: pre_close_check
+    attributes:
+      value: |
+        ### 关闭 Issue 前请先确认以下内容 (报名人不用填写)
+        - [ ] PPT 是否上传：<PR 链接>
+        - [ ] 视频是否上传：<视频链接>
