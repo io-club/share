@@ -1,49 +1,126 @@
 name: "茶话会报名"
-description: '参加茶话会需要提供部分必要信息'
-title: "[茶话会][请替换为参加时间例如 2024-10-25][请替换为时长例如 20 分钟] 请替换为标题"
+description: "报名，在 IO 技术茶话会上作分享"
+title: "[茶话会] <署名>: [<形式>] <主题> <时长> <期望日期>"
 labels: ["talk"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        # 在 IO 技术茶话会预定一次分享
+
+        IO 技术茶话会是 I/O Club 主办的系列技术分享活动。从计算机科学到世间万物，茶话会欢迎一切知识、兴趣与技能。
+
+        有意在茶话会上作讲演的同人们请填写以下表单，并入 qq 群 `291694149` 详谈。
+
+        期待您的报名。
+
   - type: input
     id: author
     attributes:
-      label: '作者'
-      description: '姓名/昵称/github_id'
-      placeholder: '怎么称呼您?'
+      label: 署名
+      description: |
+        怎么称呼您？
+        您的称谓可能被发布至公共领域，请注意个人隐私。
+      placeholder: "姓名 | 昵称 | id ..."
     validations:
       required: true
-  - type: checkboxes
-    id: content_type
+
+  - type: input
+    id: subject
     attributes:
-      label: '内容类型'
-      description: '如果是技术类分享，一定要注意难度/吸引力等要素，可以参考首页列出的 PPT 写作/演讲技巧'
-      options:
-        - label: '技术类'
-        - label: '其他'
+      label: 主题
+      description: |
+        您分享的主题？
+      placeholder: "示例: 转生之上辈子最害怕的 windows 重装系统后的配置环境被我用 scoop 1 秒光速拿捏"
     validations:
       required: true
+
   - type: textarea
     id: summary
     attributes:
-      label: '摘要/大纲'
-      description: '可选'
-      placeholder: '提供内容摘要（可选）'
+      label: 摘要
+      description: |
+        请简述您的分享内容。
+        您的摘要将随分享会公告一并发布。
+      placeholder: "示例: 从 Figma 窥见与实际开发相结合的设计入门指南，包含初级的排版和设计系统主要元素。"
     validations:
-      required: false
-  - type: textarea
-    id: other
+      required: true
+
+  - type: checkboxes
+    id: content_type
     attributes:
-      label: '补充说明'
-      description: '可选'
-      placeholder: '想写啥就写啥'
+      label: 技术类分享
+      description: |
+        技术类分享优先获得排期。
+        如果是技术类分享，一定要注意难度/吸引力等要素，可以参考首页列出的 PPT 写作/演讲技巧。
+      options:
+        - label: 我的分享涉及技术或计算机
+    validations:
+      required: true
+
+  - type: input
+    id: duration
+    attributes:
+      label: 预估时长
+      description: |
+        您预计的分享时长。
+      placeholder: "示例: 1h | 2h30m | 25m"
+    validations:
+      required: true
+
+  - type: input
+    id: expected_date
+    attributes:
+      label: 期望日期
+      description: |
+        您希望分享的日期。
+        格式:
+          YYYY-MM-DD~YYYY-MM-DD (日期段)
+          YYYY-MM-DD (指定日期)
+          多个日期请用英文逗号分隔，逗号后勿加空格。
+        茶话会通常在每周日晚八点钟举行，如有例外会提前通知。
+      placeholder: "示例: 2024-09-24~2024-10-24,2024-10-25"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        接下来，请您填写标题。标题格式:
+
+        ```
+        [茶话会] <署名>: [<形式>] <主题> <时长> <期望日期>
+        ```
+
+        github 不提供自动填写。请您按照如下格式，将尖括号及其内的内容替换为实际信息:
+
+        - `<署名>`: 署名，注意与表单内保持一致。若您的署名内含有英文冒号，请转义；
+        - `<形式>`: 分享的形式，如`课程`、`辅导`、`研讨会`、`报告`等。请转义`]`；
+        - `<主题>`: 主题，注意与表单内保持一致。若您的主题内含有空白字符，请用英文双引号将其包裹，并转义特殊符号；
+        - `<时长>`: 时长，注意与表单内保持一致；
+        - `<期望日期>`: 期望日期，注意与表单内保持一致；
+
+        示例:
+
+        ```
+        [茶话会] Mr. Shanntung: [报告] 中国部分古建筑赏析 25m 2024-10-27~2025-01-01
+        ```
+
+  - type: textarea
+    id: attachment
+    attributes:
+      label: 附注
+      placeholder: "想写啥就写啥"
     validations:
       required: false
+
   - type: checkboxes
     id: pre_close_check
     attributes:
-      label: '关闭 Issue 前请先确认以下内容'
-      description: '报名人不需要填写'
+      label: "关闭 Issue 前请先确认以下内容"
+      description: "报名人不需要填写"
       options:
-        - label: 'PPT 是否上传：<PR 链接>'
-        - label: '视频是否上传：<视频链接>'
+        - label: "PPT 是否上传：<PR 链接>"
+        - label: "视频是否上传：<视频链接>"
     validations:
       required: false
