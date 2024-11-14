@@ -67,21 +67,26 @@ body:
   - type: textarea
     attributes:
       label: '能力要求'
-      description: '完成任务需要学习的知识'
-      placeholder: |
+      description: |
+        完成任务需要学习的知识
+
         例如：
+          - 需要能够正常访问 github, 并注册账号
+          - 知道 webhook 的概念
+          - 了解后端(例如 fastapi)基础使用方法
+          - 对编写 qq 机器人感兴趣
+      placeholder: |
         - 需要能够正常访问 github, 并注册账号
-        - 知道 webhook 的概念
-        - 了解后端(例如 fastapi)基础使用方法
-        - 对编写 qq 机器人感兴趣
+        - 需要具备一定的沟通能力，遇到困难可以主动咨询群友
+        -
     validations:
       required: true
   - type: checkboxes
     attributes:
       label: '关闭 Issue 前请确认以下内容'
-      description: '申请人不需要填写'
+      description: '请按情况勾选，一般都需要'
       options:
-        - label: '代码已经上传：<PR 链接>'
-        - label: '准备参加茶话会分享：<issue 链接>'
+        - label: '需要上传代码：<PR 链接>'
+        - label: '需要参加茶话会分享：<issue 链接>'
     validations:
       required: false
