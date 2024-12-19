@@ -1,49 +1,95 @@
 name: "茶话会报名"
-description: '参加茶话会需要提供部分必要信息'
+description: "报名，在 IO 茶话会上作分享"
 title: "[茶话会][请替换为参加时间例如 2024-10-25][请替换为时长例如 20 分钟] 请替换为标题"
 labels: ["talk"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        # 在 IO 技术茶话会预定一次分享
+
+        IO 技术茶话会是 I/O Club 主办的系列技术分享活动。从计算机科学到世间万物，茶话会欢迎一切知识、兴趣与技能。
+
+        有意在茶话会上作讲演的同人们请填写以下表单，并加入 qq 群 `291694149`。
+
+        期待您的报名。
+
+        ## 报名规则
+
+        - 替换标题上的 参加时间，时长，标题 三项内容
+        - 填写下面的表单
+
   - type: input
     id: author
     attributes:
-      label: '作者'
-      description: '姓名/昵称/github_id'
-      placeholder: '怎么称呼您?'
+      label: 署名
+      description: |
+        怎么称呼您？
+        您的称谓可能被发布至公共领域，请注意个人隐私。
+      placeholder: "姓名 | 昵称 | id ..."
     validations:
       required: true
-  - type: checkboxes
-    id: content_type
-    attributes:
-      label: '内容类型'
-      description: '如果是技术类分享，一定要注意难度/吸引力等要素，可以参考首页列出的 PPT 写作/演讲技巧'
-      options:
-        - label: '技术类'
-        - label: '其他'
-    validations:
-      required: true
+
   - type: textarea
     id: summary
     attributes:
-      label: '摘要/大纲'
-      description: '可选'
-      placeholder: '提供内容摘要（可选）'
+      label: 摘要
+      description: |
+        请简述您的分享内容。
+        您的摘要将随分享会公告一并发布。
+      placeholder: |
+        示例：
+
+        从 Figma 窥见与实际开发相结合的设计入门指南
+        - 初级的排版
+        - 设计系统主要元素
+
     validations:
-      required: false
-  - type: textarea
-    id: other
+      required: true
+
+  - type: dropdown
+    id: content_type
     attributes:
-      label: '补充说明'
-      description: '可选'
-      placeholder: '想写啥就写啥'
+      label: "内容类型"
+      description: |
+        如果是技术类分享
+
+        1. 一定要注意吸引力等要素，尽量避免听众睡着，可以参考首页列出的 PPT 写作/演讲技巧。
+        2. 注意关注听众是否了解过您的话题，例如
+          - 对于语言: go 语言有多种定义变量的方式，在你讲 go 语言的 `a := 1` 这种具有特色的语法时，使用 `var a: int32 = 1` 举例不一定合适，因为不了解 go 的人连最基本的语法都不知道
+          - 对于基本术语: 初学者可能会有如下的问题
+            - ip 是什么，不是域名吗？
+            - 端口是什么？我从来从来没加端口？
+          - 为了避免某些人的英语问题，建议说 description 之类复杂的单词时，也要跟着说一遍中文
+
+          总之所有内容，无论是术语还是语法等等都要简化到不能简化的单位，把听众当成完全小白来看待。
+
+        最重要的一点，不用担心做的不够好，做演讲需要不断练习积累经验 (保守估计至少需要 10 次以上才能令自己满意)
+
+      options:
+        - 我的分享涉及技术或计算机
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: attachment
+    attributes:
+      label: "附件 (可选)"
+      placeholder: "想写啥就写啥"
     validations:
       required: false
-  - type: checkboxes
+
+  - type: textarea
     id: pre_close_check
     attributes:
-      label: '关闭 Issue 前请先确认以下内容'
-      description: '报名人不需要填写'
-      options:
-        - label: 'PPT 是否上传：<PR 链接>'
-        - label: '视频是否上传：<视频链接>'
+      label: "关闭 Issue 前请先确认以下内容"
+      description: |
+
+        - 建议演讲者编写文档 (PPT 或者其他形式的材料，原则是不能照搬)，即使 ppt 内容网上已经有现成的教程（例如 xxx 的语法），也应该对里面的内容按照讲的逻辑进行调整
+        - 注意文档或视频是否包含敏感信息/不想公开发布的内容等等
+
+      value: |
+        - 文档/PPT：<PR 链接>"
+        - B 站视频：<视频链接>"
     validations:
-      required: false
+      required: true

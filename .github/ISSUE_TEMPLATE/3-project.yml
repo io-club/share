@@ -1,0 +1,42 @@
+name: "项目跟踪"
+description: '用来管理 IO 开发维护的项目'
+title: "[项目]: "
+labels: ["task"]
+body:
+  - type: textarea
+    attributes:
+      label: '目标'
+      description: '请详细项目要实现的目标/功能'
+      value: |
+        - 项目名称: <>
+        - 功能列表
+          - [ ] demo
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: '技术栈/资料'
+      description: '请尽可能假设项目合作者为实实在在的小白，提供尽可能全面的资料，以列表形式列出'
+      value: |
+        - 需要学习一定的沟通能力，遇到困难可以主动咨询群友
+        - 需要自学如何访问 github, 并注册账号
+        - Git 使用规范流程（必知必会）: https://www.ruanyifeng.com/blog/2015/08/git-use-process.html
+        -
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: '如何参与'
+      description: '请说明如何参与该项目开发'
+      value: |
+        项目一般属于多人合作，请直接加入 QQ 群联系
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: '协作'
+      description: '请按情况勾选'
+      options:
+        - label: '项目仓库：<>'
+    validations:
+      required: false

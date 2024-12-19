@@ -1,0 +1,13 @@
+name: "空白/自定义 issue"
+description: "如果您的任何问题/需求等等不符合其他模板，请使用这个"
+title: "[自定义] "
+labels: ["talk"]
+body:
+  - type: textarea
+    id: content
+    attributes:
+      label: 内容
+      description: |
+        请描述您的问题/请求/等任何内容。
+    validations:
+      required: true

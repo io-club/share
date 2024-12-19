@@ -1,6 +1,6 @@
-name: "新任务发布"
+name: "新需求发布"
 description: '开发任务等'
-title: "[任务]: "
+title: "[需求]: "
 labels: ["task"]
 body:
   - type: textarea
@@ -12,11 +12,15 @@ body:
 
         认领者需要遵守以下要求
 
-        - 每周必须在评论中更新进度，无论是学习进度还是开发进度
-        - 如果**两周**内没人任何进展, 则认定为认领失败, assign 将被取消，可以由其他人认领
+        - 每两周必须在评论中更新进度，无论是学习进度还是开发进度
+        - 如果**1 个月**没有任何进展, 则认定为认领失败, assign 将被取消，可以由其他人认领
         - 如遇到节假日等特殊情况，同步进度日期可以顺延
 
-        > 学习也算进展，所以小白不必担心
+        注意事项
+
+        - 学习也算进展，所以小白不必担心
+        - 以上日期需要按照实际情况调整
+        - 任务按情况可以被多人认领合作完成
 
     validations:
       required: false
@@ -29,7 +33,7 @@ body:
 
         我们希望用户在创建 issue 时要求必须填写以下内容(暂定)
         - 作者: 昵称/github_id/xxx
-        - 类型: 可以是复选框, A/B/xxx/其他
+        - 类型: 可以是复选框，A/B/xxx/其他
         - 标题
         - 内容
 
@@ -39,7 +43,7 @@ body:
     attributes:
       label: '实现方式'
       description: '请为任务认领者提供大致的实现思路'
-      placeholder: '例如: Github 支持在 .github/ 文件夹下创建一个模板文件规定 issue 的格式'
+      placeholder: '例如：Github 支持在 .github/ 文件夹下创建一个模板文件规定 issue 的格式'
     validations:
       required: true
   - type: textarea
@@ -63,21 +67,44 @@ body:
   - type: textarea
     attributes:
       label: '能力要求'
-      description: '完成任务需要学习的知识'
-      placeholder: |
+      description: |
+        完成任务需要学习的知识
+
         例如：
+          - 需要能够正常访问 github, 并注册账号
+          - 知道 webhook 的概念
+          - 了解后端(例如 fastapi)基础使用方法
+          - 对编写 qq 机器人感兴趣
+
+      value: |
         - 需要能够正常访问 github, 并注册账号
-        - 知道 webhook 的概念
-        - 了解后端(例如 fastapi)基础使用方法
-        - 对编写 qq 机器人感兴趣
+        - 需要具备一定的沟通能力，遇到困难可以主动咨询群友
+        - 
+
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: '实际价值/意义'
+      description: |
+        完成任务能有什么实质性收获, 技术，工作，钱等方面
+
+        以部署硬件每天给 IO 实验室拍照并上传至 alist 为例：
+        - 涉及的工作方向: 嵌入式，前端，后端
+        - 可以作为嵌入式方向同学的第一个练手项目
+        - 作为 嵌入式，摄像头， AI 结合的前置项目，例如智能人脸识别
+        - 拍照内容也不一定是 IO，也可以是里面的物品，例如一朵花，窗外风景，延时摄影
+
+      value: |
+        - 涉及的工作方向: 
     validations:
       required: true
   - type: checkboxes
     attributes:
       label: '关闭 Issue 前请确认以下内容'
-      description: '申请人不需要填写'
+      description: '请按情况勾选，一般都需要'
       options:
-        - label: '代码已经上传：<PR 链接>'
-        - label: '准备参加茶话会分享：<issue 链接>'
+        - label: '需要上传代码：<PR 链接>'
+        - label: '需要参加茶话会分享：<issue 链接>'
     validations:
       required: false
