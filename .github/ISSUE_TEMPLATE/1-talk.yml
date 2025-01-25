@@ -47,7 +47,7 @@ body:
     validations:
       required: true
 
-  - type: checkboxes
+  - type: dropdown
     id: content_type
     attributes:
       label: "内容类型"
@@ -67,7 +67,8 @@ body:
         最重要的一点，不用担心做的不够好，做演讲需要不断练习积累经验 (保守估计至少需要 10 次以上才能令自己满意)
 
       options:
-        - label: 我的分享涉及技术或计算机
+        - 我的分享涉及技术或计算机
+        - 其他
     validations:
       required: true
   - type: textarea
@@ -78,19 +79,17 @@ body:
     validations:
       required: false
 
-  - type: checkboxes
+  - type: textarea
     id: pre_close_check
     attributes:
       label: "关闭 Issue 前请先确认以下内容"
       description: |
-        报名人需要选择是否同意下面内容，一般同意，除非是包含敏感信息/不想公开发布的内容等等
 
-        - 建议做 ppt (或者其他形式的东西，原则是不能照搬)，理由如下
-          - 即使你的 ppt 内容有些部分例如 xxx 语法，网上已经有现成的教程。你也应该对里面的内容做筛选，以集中听众的注意力
-          - 即使你的语法部分没讲多少，但是观众看到那个长长的教程网页可能就头疼了
+        - 建议演讲者编写文档 (PPT 或者其他形式的材料，原则是不能照搬)，即使 ppt 内容网上已经有现成的教程（例如 xxx 的语法），也应该对里面的内容按照讲的逻辑进行调整
+        - 注意文档或视频是否包含敏感信息/不想公开发布的内容等等
 
-      options:
-        - label: "是否同意上传 PPT：<PR 链接>"
-        - label: "是否同意上传视频：<视频链接>"
+      value: |
+        - 文档/PPT：<PR 链接>
+        - B 站视频：<视频链接>
     validations:
-      required: false
+      required: true

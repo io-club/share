@@ -75,10 +75,28 @@ body:
           - 知道 webhook 的概念
           - 了解后端(例如 fastapi)基础使用方法
           - 对编写 qq 机器人感兴趣
-      placeholder: |
+
+      value: |
         - 需要能够正常访问 github, 并注册账号
         - 需要具备一定的沟通能力，遇到困难可以主动咨询群友
-        -
+        - 
+
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: '实际价值/意义'
+      description: |
+        完成任务能有什么实质性收获, 技术，工作，钱等方面
+
+        以部署硬件每天给 IO 实验室拍照并上传至 alist 为例：
+        - 涉及的工作方向: 嵌入式，前端，后端
+        - 可以作为嵌入式方向同学的第一个练手项目
+        - 作为 嵌入式，摄像头， AI 结合的前置项目，例如智能人脸识别
+        - 拍照内容也不一定是 IO，也可以是里面的物品，例如一朵花，窗外风景，延时摄影
+
+      value: |
+        - 涉及的工作方向: 
     validations:
       required: true
   - type: checkboxes
