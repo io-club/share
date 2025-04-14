@@ -1,8 +1,8 @@
-### 安装hugo
+### 安装 hugo
 
 #### windows
 
-> 记得开管理员模式如果用cmd或者powershell，推荐用git bash
+> 记得开管理员模式如果用 cmd 或者 powershell，推荐用 git bash
 
 Chocolatey
 ```bash
@@ -13,7 +13,7 @@ Scoop
 ```bash
 scoop install hugo-extended
 ```
-![choco安装hugo2](https://pan.heky.top/d/博客图片/choco安装hugo2.png)
+![choco 安装 hugo2](https://pan.heky.top/d/博客图片/choco安装hugo2.png)
 
 Winget
 ```
@@ -70,7 +70,7 @@ title = "about"
 +++
 ```
 
-只要将draft后面的参数改为false就是表示发布的意思
+只要将 draft 后面的参数改为 false 就是表示发布的意思
 #### 创建一篇文章
 
 ```bash
@@ -83,17 +83,17 @@ hugo new post/first.md
 
 #### 下载文件到本地
 
-文件下载之后放入themes文件夹中，注意，假如有一个主题叫做heky，github上直接下载后解压得到的文件夹可能叫做heky-master，需要将后缀-master删除
+文件下载之后放入 themes 文件夹中，注意，假如有一个主题叫做 heky，github 上直接下载后解压得到的文件夹可能叫做 heky-master，需要将后缀-master 删除
 
 #### git clone
 
-在themes文件夹目录下，使用git clone 克隆仓库到本地
+在 themes 文件夹目录下，使用 git clone 克隆仓库到本地
 
 #### git submodule
 
 关联主题仓库
 
-> 要用这种方法，需要先在根目录用git init 创建一个仓库
+> 要用这种方法，需要先在根目录用 git init 创建一个仓库
 
 ```bash
 git submodule add https://github.com/example/library.git libs/library
@@ -125,13 +125,13 @@ rm -rf .git/modules/libs/library
 git commit -m "Remove submodule libs/library"
 ```
 
-三种方法都要在根目录下的 `hugo.toml` 文件中添加新的一行:
+三种方法都要在根目录下的 `hugo.toml` 文件中添加新的一行：
 
 ```sh
 theme = "xxx"
 ```
 
-#### 运行Hugo
+#### 运行 Hugo
 
 ```bash
 hugo server --theme=hyde --buildDrafts
@@ -141,14 +141,14 @@ hugo server --theme=hyde --buildDrafts
 > --theme 后面跟想要的主题
 > --buildDrafts 表示草稿也一并显示
 
-hugo默认开的端口是1313
+hugo 默认开的端口是 1313
 所以可以通过浏览器打开 http://localhost:1313 来访问博客
 
-hugo因为使用go语言来实现，所以运行速度很快，支持"热编写"，即，在打开服务的情况下可以创建，或者修改内容，而不用重新启动服务。
+hugo 因为使用 go 语言来实现，所以运行速度很快，支持"热编写"，即，在打开服务的情况下可以创建，或者修改内容，而不用重新启动服务。
 
 同时如果是部署在服务器上，此时就可以通过配置反向代理，来完成博客搭建的收尾工作。
 
-不过如果没有服务器的话要如何？下面来介绍如何利用github page来部署我们的hugo。
+不过如果没有服务器的话要如何？下面来介绍如何利用 github page 来部署我们的 hugo。
 
 ### 部署 Hugo 作为一个 Github Pages
 
@@ -168,15 +168,15 @@ hugo new posts/my-first-post.md
 
 第三步：**修改配置文件 config.toml**
 
-站点目录`config.toml`中`baseURL`要换成自己建立的仓库，如baseURL = “https://xxx.github.io/"
+站点目录`config.toml`中`baseURL`要换成自己建立的仓库，如 baseURL = “https://xxx.github.io/"
 
-第四步： 进入**站点根目录**下，执行：
+第四步：进入**站点根目录**下，执行：
 
 ```fallback
 hugo
 ```
 
-执行后，站点根目录下会生成一个 `public` 文件夹，该文件下的内容即Hugo生成的整个静态网站。每次更新内容后，将 pubilc 目录里所有文件 push到GitHub即可。
+执行后，站点根目录下会生成一个 `public` 文件夹，该文件下的内容即 Hugo 生成的整个静态网站。每次更新内容后，将 pubilc 目录里所有文件 push 到 GitHub 即可。
 
 第五步：上传代码至 master
 
@@ -192,9 +192,9 @@ git branch -M main
 git push -u origin main
 ```
 
-> -u 表示将本地分支和远程分支关联，下次push时就可以不用显式的使用远程仓库名，而是可以直接用git push
+> -u 表示将本地分支和远程分支关联，下次 push 时就可以不用显式的使用远程仓库名，而是可以直接用 git push
 
-之后就可以通过https://xxx.github.io/ 来访问我们的博客了。
+之后就可以通过 https://xxx.github.io/ 来访问我们的博客了。
 
 以后每次**站点目录**下执行 `hugo` 命令后，再到`public`下执行推送命令：
 
@@ -213,7 +213,7 @@ git push
 
 因此，我们需要简单顺滑的方式来进行博客发布，首先我们初始化博客源文件的仓库，
 
-因为我们的博客基于 GitHub 与 GitHub Pages，可以通过官方提供的 GitHub Action 进行 CI 自动发布，下面我会进行详细讲解。GitHub Action 是一个持续集成和持续交付(CI/CD) 平台，可用于自动执行构建、测试和部署管道，目前已经有很多开发好的工作流，可以通过简单的配置即可直接使用。
+因为我们的博客基于 GitHub 与 GitHub Pages，可以通过官方提供的 GitHub Action 进行 CI 自动发布，下面我会进行详细讲解。GitHub Action 是一个持续集成和持续交付 (CI/CD) 平台，可用于自动执行构建、测试和部署管道，目前已经有很多开发好的工作流，可以通过简单的配置即可直接使用。
 
 配置在仓库目录 `.github/workflows` 下，以 `.yml` 为后缀。
 自动发布示例配置如下：
@@ -264,6 +264,6 @@ jobs:
 
 `jobs` 表示 GitHub Action 中的任务，我们设置了一个 `build` 任务，`runs-on` 表示 GitHub Action 运行环境，我们选择了 `ubuntu-latest`。我们的 `build` 任务包含了 `Checkout`、`Setup Hugo`、`Build Web` 和 `Deploy Web` 四个主要步骤，其中 `run` 是执行的命令，`uses` 是 GitHub Action 中的一个插件，我们使用了 `peaceiris/actions-hugo@v2` 和 `peaceiris/actions-gh-pages@v3` 这两个插件。其中 `Checkout` 步骤中 `with` 中配置 `submodules` 值为 `true` 可以同步博客源仓库的子模块，即我们的主题模块。
 
-首先需要将上述 `deploy.yml` 中的 `EXTERNAL_REPOSITORY` 改为自己的 GitHub Pages 仓库.
+首先需要将上述 `deploy.yml` 中的 `EXTERNAL_REPOSITORY` 改为自己的 GitHub Pages 仓库。
 
 因为我们需要从博客仓库推送到外部 GitHub Pages 仓库，需要特定权限，要在 GitHub 账户下 `Setting - Developer setting - Personal access tokens` 下创建一个 Token。
