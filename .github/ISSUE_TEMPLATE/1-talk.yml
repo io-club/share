@@ -89,7 +89,7 @@ body:
         - 注意文档或视频是否包含敏感信息/不想公开发布的内容等等
 
       value: |
-        - 文档/PPT：<PR 链接>
-        - B 站视频：<视频链接>
+        - [ ] 文档/PPT：<PR 链接>
+        - [ ] B 站视频：<视频链接>
     validations:
       required: true
